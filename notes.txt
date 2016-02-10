@@ -17,35 +17,7 @@ rake db:migrate
 		  [ "The Shawshank Redemption", "1994", 2.99,
 				"Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
 				"tt0111161",
-				"/MV5BODU4MjU4NjIwNl5BMl5BanBnXkFtZTgwMDU2MjEyMDE@._V1_UX182_CR0,0,182,268_AL_.jpg" ],
-		  [ "The Shawshank Redemption2", "1994", 2.99,
-				"Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
-				"tt0111161",
-				"/MV5BODU4MjU4NjIwNl5BMl5BanBnXkFtZTgwMDU2MjEyMDE@._V1_UX182_CR0,0,182,268_AL_.jpg" ],
-			[ "The Shawshank Redemption3", "1994", 2.99,
-				"Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
-				"tt0111161",
-				"/MV5BODU4MjU4NjIwNl5BMl5BanBnXkFtZTgwMDU2MjEyMDE@._V1_UX182_CR0,0,182,268_AL_.jpg" ],
-			[ "The Shawshank Redemption4", "1994", 2.99,
-				"Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
-				"tt0111161",
-				"/MV5BODU4MjU4NjIwNl5BMl5BanBnXkFtZTgwMDU2MjEyMDE@._V1_UX182_CR0,0,182,268_AL_.jpg" ],
-			[ "The Shawshank Redemption", "1994", 2.99,
-				"Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
-				"tt0111161",
-			"/MV5BODU4MjU4NjIwNl5BMl5BanBnXkFtZTgwMDU2MjEyMDE@._V1_UX182_CR0,0,182,268_AL_.jpg" ],
-			[ "The Shawshank Redemption2", "1994", 2.99,
-				"Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
-				"tt0111161",
-			"/MV5BODU4MjU4NjIwNl5BMl5BanBnXkFtZTgwMDU2MjEyMDE@._V1_UX182_CR0,0,182,268_AL_.jpg" ],
-			[ "The Shawshank Redemption3", "1994", 2.99,
-				"Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
-				"tt0111161",
-			"/MV5BODU4MjU4NjIwNl5BMl5BanBnXkFtZTgwMDU2MjEyMDE@._V1_UX182_CR0,0,182,268_AL_.jpg" ],
-			[ "The Shawshank Redemption4", "1994", 2.99,
-				"Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
-				"tt0111161",
-			"/MV5BODU4MjU4NjIwNl5BMl5BanBnXkFtZTgwMDU2MjEyMDE@._V1_UX182_CR0,0,182,268_AL_.jpg" ]
+				"/MV5BODU4MjU4NjIwNl5BMl5BanBnXkFtZTgwMDU2MjEyMDE@._V1_UX182_CR0,0,182,268_AL_.jpg" ]		 
 		]
 
 		movie_list.each do |title, release_year, price, description, imdb_id, poster_url|
@@ -84,6 +56,8 @@ rails generate devise:views -v registrations sessions
   
 #checkout
 gem 'redis', '~> 3.0.1'
-gem 'hiredis', '~> 0.4.5'
+#gem 'hiredis', '~> 0.4.5'  # not sure how to install this so far
+
+rails g controller carts show
 
 rails server

@@ -27,13 +27,12 @@
 	
 	<%= render "layouts/alerts" %>
   
+	<ul class="title-area">
     <%= yield %>
+	</ul>
 	
-	<footer class="row">
-		<div class="large-12 columns">
-			<hr> <p> Andy's MovieStore 2016</p>
-		</div>
-	</footer>
+	<%= render "layouts/footer" %>
+	
 	
 	<%= javascript_include_tag "application" %>
   </body>

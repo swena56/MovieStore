@@ -3,3 +3,4 @@ not centered movies layout
 creating a new user does not state why error1 is that the password is too short, or does not match.  create this kind of dialoge
 add search
 change tab name
+Figure out what Fiddle is for

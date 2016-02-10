@@ -4,7 +4,7 @@ gem 'zurb-foundation', '~> 4.3', '>= 4.3.2'
 gem 'coffee-script-source', '1.8.0'
 gem 'devise'
 
-#gem 'redis', '~> 3.0.1'
+gem 'redis', '~> 3.0.1'
 #gem 'hiredis', '~> 0.4.5'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

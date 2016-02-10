@@ -1,23 +1,46 @@
-<p id="notice"><%= notice %></p>
+<div class="medium-6 columns">
 
-<div class="large-3 small-12 column">
-  <%=image_tag @movie.poster%>
+	<%=image_tag @movie.poster%>
+
+	<div class="medium-6 large-5 columns">
+
+		<h3>
+			<%= @movie.title %>
+			(<%= @movie.release_year %>)
+			<%=link_to @movie.imdb do%>
+			  <%=image_tag asset_path("imdb-logo.png"), :size => "32x32" %>
+			<%end%>
+		</h3>
+
+		<p><%= @movie.description %></p>
+		
+		<label>Format
+			<select>
+				<option value="digital">Digital</option>
+				<option value="blueray">Blueray</option>
+				<option value="dvd">DVD</option>						
+				<option value="vhs">VHS</option>
+			</select>
+		</label>
+		
+		<div class="row">
+			<div class="small-3 columns">
+				<label for="middle-label" class="middle">Quantity</label>
+			</div>
+	
+			<div class="small-9 columns">
+				<input type="text" id="middle-label" placeholder="1">
+			</div>	
+		</div>
+		
+		<a href="#" class="button large expanded">Buy Now</a>
+		
+		<div class="small secondary expanded button-group">
+			<p>
+				<a class="button" href="http://www.facebook.com">Facebook</a>
+				<a class="button" href="http://www.twitter.com" >Twitter</a>
+			</p>
+		</div>
 </div>
 
-<div class="large-9 small-12 column">
-  <h3>
-    <%= @movie.title %>
-    (<%= @movie.release_year %>)
-    <%=link_to @movie.imdb do%>
-      <%=image_tag asset_path("imdb-logo.png"), :size => "32x32" %>
-    <%end%>
-  </h3>
-  <p> 
-                
-	 <%= @movie.description %>
-  </p>
-  <p class="label movie-label radius mb1">$ <%= @movie.price %></p>
-
-  <p><%= @movie.description %></p>
-</div>
 
