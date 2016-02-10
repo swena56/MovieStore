@@ -21,9 +21,4 @@ class CartsController < ApplicationController
   def current_user_cart
     "cart#{current_user.id}"
   end
-	def cart_count
-		"0"
-		#$redis.scard "cart#{id}"
-	end
-
 end

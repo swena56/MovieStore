@@ -40,6 +40,11 @@
 			<i class="fi-shopping-cart"></i>
 			<span><%=@cart_action%></span> Add to Cart
 		  <%end%>
+			  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+			  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+			  data-description="<%= @movie.title %>"
+			  data-amount="<%= @movie.stripe_price %>"
+			  data-locale="auto"></script>
 		<%end%>
 		
 		

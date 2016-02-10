@@ -6,4 +6,8 @@ class Movie < ActiveRecord::Base
 	def imdb
 		"http://www.imdb.com/title/#{imdb_id}/"
 	end
+	
+	def stripe_price
+		"#{price * 100}"
+	end
 end

@@ -6,6 +6,7 @@ gem 'devise'
 
 gem 'redis', '~> 3.0.1'
 gem "hiredis", "~> 0.6.0"
+gem 'stripe'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
