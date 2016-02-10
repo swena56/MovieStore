@@ -1,0 +1,68 @@
+rails new ProjectName
+
+#check out https://rubygems.org/ 
+
+#make changes in GemFile
+gem 'zurb-foundation', '~> 4.3', '>= 4.3.2'
+gem 'coffee-script-source', '1.8.0'  # this will fix some javascript issues.  WINdows only
+#change https to http for source in GemFile
+
+bundle install
+
+rails g scaffold movie title release_year:integer price:float description:text imdb_id poster_url --skip-stylesheets
+rake db:create
+rake db:migrate
+#seed data  
+		movie_list = [
+		  [ "The Shawshank Redemption", "1994", 2.99,
+				"Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+				"tt0111161",
+				"/MV5BODU4MjU4NjIwNl5BMl5BanBnXkFtZTgwMDU2MjEyMDE@._V1_UX182_CR0,0,182,268_AL_.jpg" ],
+		  [ "The Shawshank Redemption2", "1994", 2.99,
+				"Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+				"tt0111161",
+				"/MV5BODU4MjU4NjIwNl5BMl5BanBnXkFtZTgwMDU2MjEyMDE@._V1_UX182_CR0,0,182,268_AL_.jpg" ],
+			[ "The Shawshank Redemption3", "1994", 2.99,
+				"Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+				"tt0111161",
+				"/MV5BODU4MjU4NjIwNl5BMl5BanBnXkFtZTgwMDU2MjEyMDE@._V1_UX182_CR0,0,182,268_AL_.jpg" ],
+			[ "The Shawshank Redemption4", "1994", 2.99,
+				"Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+				"tt0111161",
+				"/MV5BODU4MjU4NjIwNl5BMl5BanBnXkFtZTgwMDU2MjEyMDE@._V1_UX182_CR0,0,182,268_AL_.jpg" ],
+			[ "The Shawshank Redemption", "1994", 2.99,
+				"Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+				"tt0111161",
+			"/MV5BODU4MjU4NjIwNl5BMl5BanBnXkFtZTgwMDU2MjEyMDE@._V1_UX182_CR0,0,182,268_AL_.jpg" ],
+			[ "The Shawshank Redemption2", "1994", 2.99,
+				"Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+				"tt0111161",
+			"/MV5BODU4MjU4NjIwNl5BMl5BanBnXkFtZTgwMDU2MjEyMDE@._V1_UX182_CR0,0,182,268_AL_.jpg" ],
+			[ "The Shawshank Redemption3", "1994", 2.99,
+				"Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+				"tt0111161",
+			"/MV5BODU4MjU4NjIwNl5BMl5BanBnXkFtZTgwMDU2MjEyMDE@._V1_UX182_CR0,0,182,268_AL_.jpg" ],
+			[ "The Shawshank Redemption4", "1994", 2.99,
+				"Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.",
+				"tt0111161",
+			"/MV5BODU4MjU4NjIwNl5BMl5BanBnXkFtZTgwMDU2MjEyMDE@._V1_UX182_CR0,0,182,268_AL_.jpg" ]
+		]
+
+		movie_list.each do |title, release_year, price, description, imdb_id, poster_url|
+		  Movie.find_or_create_by(title: title, release_year: release_year, price: price, description: description, imdb_id: imdb_id, poster_url: poster_url)
+		end
+rake db:seed
+	
+
+#create header layout
+
+	
+root 'movies#index' >> config/routes.rb
+rails generate foundation:install
+
+#foundation Icon Fonts
+
+
+
+
+rails server
