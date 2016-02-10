@@ -60,9 +60,17 @@ rake db:seed
 root 'movies#index' >> config/routes.rb
 rails generate foundation:install
 
+
 #foundation Icon Fonts
 
 
+#devise
+echo gem 'devise' >> GemFile
+rails generate devise:install  #provides install instructions
+rails generate devise User
+rake db:migrate
+devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }  #routes.rb
+rails generate devise:views -v registrations sessions
 
 
 rails server
