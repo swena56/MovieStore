@@ -1,9 +1,11 @@
-<div class="medium-6 columns">
+<div class="row medium-uncollapse medium-uncollapse">
 
-	<%=image_tag @movie.poster%>
+	 <div class="small-6 columns">
+		<%=image_tag @movie.poster%>
+	</div>
+	
 
-	<div class="medium-6 large-5 columns">
-
+	 <div class="small-6 columns">
 		<h3>
 			<%= @movie.title %>
 			(<%= @movie.release_year %>)
@@ -33,7 +35,14 @@
 			</div>	
 		</div>
 		
-		<a href="#" class="button large expanded">Buy Now</a>
+		<%if signed_in?%>
+		  <%=link_to "", class: "button", data: {target: @cart_action, addUrl: add_to_cart_path(@movie), removeUrl: remove_from_cart_path(@movie)} do%>
+			<i class="fi-shopping-cart"></i>
+			<span><%=@cart_action%></span> Add to Cart
+		  <%end%>
+		<%end%>
+		
+		
 		
 		<div class="small secondary expanded button-group">
 			<p>
@@ -41,6 +50,7 @@
 				<a class="button" href="http://www.twitter.com" >Twitter</a>
 			</p>
 		</div>
+	</div>
 </div>
 
 
