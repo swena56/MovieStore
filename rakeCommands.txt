@@ -1,0 +1,7 @@
+#rake commands
+rake db:create
+rake db:setup
+rake db:migrate
+rake db:seed
+rake db:reset
+rake db:schema:load #not sure how this works

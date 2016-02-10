@@ -9,13 +9,15 @@
     <%= @movie.title %>
     (<%= @movie.release_year %>)
     <%=link_to @movie.imdb do%>
-      <%=image_tag asset_path("imdb_logo.png")%>
+      <%=image_tag asset_path("imdb-logo.png"), :size => "32x32" %>
     <%end%>
   </h3>
+  <p> 
+                
+	 <%= @movie.description %>
+  </p>
   <p class="label movie-label radius mb1">$ <%= @movie.price %></p>
 
   <p><%= @movie.description %></p>
 </div>
 
-<%= link_to 'Edit', edit_movie_path(@movie) %> |
-<%= link_to 'Back', movies_path %>

@@ -1,5 +1,5 @@
 rails new ProjectName
-
+http://www.sitepoint.com/build-online-store-rails/
 #check out https://rubygems.org/ 
 
 #make changes in GemFile
@@ -72,5 +72,18 @@ rake db:migrate
 devise_for :users, path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register' }  #routes.rb
 rails generate devise:views -v registrations sessions
 
+#_header layout
+ <%if signed_in?%>
+    <li><%=link_to current_user.email, edit_user_registration_path%></li>
+    <li><%=link_to "Logout", destroy_user_session_path, method: :delete%></li>
+  <%else%>
+    <li><%=link_to "Register", new_user_registration_path%></li>
+    <li><%=link_to "Login", new_user_session_path%></li>
+  <%end%>
+
+  
+#checkout
+gem 'redis', '~> 3.0.1'
+gem 'hiredis', '~> 0.4.5'
 
 rails server
