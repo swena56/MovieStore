@@ -53,7 +53,10 @@ rails generate devise:views -v registrations sessions
     <li><%=link_to "Login", new_user_session_path%></li>
   <%end%>
 
-  
+#configuring strip on heroku
+heroku config:set PUBLISHABLE_KEY=pk_test_Ey5Z2ZMWCadRLi0wOkoARDmP SECRET_KEY=sk_test_bZz8VNY5ixpLtwPKdlSQz6f0
+git push heroku master
+
 #checkout
 gem 'redis', '~> 3.0.1'
 #gem 'hiredis', '~> 0.4.5'  # not sure how to install this so far
