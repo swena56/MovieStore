@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'zurb-foundation', '~> 4.3', '>= 4.3.2'
 gem 'coffee-script-source', '1.8.0'
 gem 'devise'
-
+gem 'heroku'
 gem 'redis', '~> 3.0.1'
 gem "hiredis", "~> 0.6.0"
 gem 'stripe'
@@ -12,6 +12,7 @@ group :development, :test do
   gem 'sqlite3-ruby'
 end
 group :production do
+  gem 'thin'
   gem 'pg'
   gem 'rails_12factor'
 end
