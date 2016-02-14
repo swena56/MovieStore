@@ -8,6 +8,7 @@
 	 <div class="small-6 columns">
 		<h3>
 			<%= @movie.title %>
+			
 			(<%= @movie.release_year %>)
 			<%=link_to @movie.imdb do%>
 			  <%=image_tag asset_path("imdb-logo.png"), :size => "32x32" %>
@@ -36,19 +37,9 @@
 		</div>
 		
 		<%if signed_in?%>
-		  <%=link_to "", class: "button", data: {target: @cart_action, addUrl: add_to_cart_path(@movie), removeUrl: remove_from_cart_path(@movie)} do%>
-			<i class="fi-shopping-cart"></i>
-			<span><%=@cart_action%></span> Add to Cart
-		  <%end%>
-			  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-			  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-			  data-description="<%= @movie.title %>"
-			  data-amount="<%= @movie.stripe_price %>"
-			  data-locale="auto"></script>
+		  <%= link_to "Add to Cart", { :controller => :carts, :action => :new, :name => @movie.title, :price => @movie.price  }, { class: "btn btn-primary btn-lg", style: "width: 100%;" } %> 
 		<%end%>
-		
-		
-		
+			
 		<div class="small secondary expanded button-group">
 			<p>
 				<a class="button" href="http://www.facebook.com">Facebook</a>

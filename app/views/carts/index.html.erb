@@ -1,29 +1,38 @@
-<p id="notice"><%= notice %></p>
+<div class="row text-center">
+<h1>Shopping Cart</h1> 
+	<p>
+		<%= link_to 'Empty Cart', method: :emptyCart %>
+		<p id="notice"><%= notice %></p>
+		  <li class="column">		
+				<table>
+				  <thead>
+					<tr>
+					  <th>Name</th>
+					  <th>Price</th>
+					  <th colspan="3"></th>
+					</tr>
+				  </thead>
 
-<h1>Listing Carts</h1>
+				  <tbody>			  
+					<% @carts.each do |cart| %>
+					  <tr>
+						<td><%= cart.name %></td>
+						<td><%= cart.price %></td>               
+						<td><%= link_to 'Remove', cart, method: :delete %></td>
+					  </tr>
+					<% end %>
+				  </tbody>
+				</table>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Price</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+				<br>
+		</li>
+			<%if signed_in?%>		
+				  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+				  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+				  data-description="description"
+				  data-amount="amount"
+				  data-locale="auto"></script>
+			<%end%>
+	</p>
+</div>
 
-  <tbody>
-    <% @carts.each do |cart| %>
-      <tr>
-        <td><%= cart.name %></td>
-        <td><%= cart.price %></td>
-        <td><%= link_to 'Show', cart %></td>
-        <td><%= link_to 'Edit', edit_cart_path(cart) %></td>
-        <td><%= link_to 'Destroy', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Cart', new_cart_path %>

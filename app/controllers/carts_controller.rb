@@ -13,20 +13,27 @@ class CartsController < ApplicationController
   end
 
   # GET /carts/new
-  def new()
-	@movie.inspect
+  def new
     @cart = Cart.new
+	@cart.name = params[:name]
+	@cart.price = params[:price]
+	
+	@cart.save
+	redirect_to "/carts"
   end
 
   # GET /carts/1/edit
   def edit
   end
 
+  def emptyCart
+	
+  end
+  
   # POST /carts
   # POST /carts.json
   def create
     @cart = Cart.new(cart_params)
-
     respond_to do |format|
       if @cart.save
         format.html { redirect_to @cart, notice: 'Cart was successfully created.' }

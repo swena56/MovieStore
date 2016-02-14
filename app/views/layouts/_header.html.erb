@@ -20,11 +20,10 @@
 		<ul class="right">
          <%if signed_in?%>
 	
-		<li><%= link_to "/carts" do%>
-			<i class="fi-shopping-cart"></i>
-			My Cart(0)
-			
-		  <%end%>
+		<li>
+			<%= link_to "/carts" do%><i class="fi-shopping-cart">
+				My Cart(0)</i>
+			<%end%>
 		</li>	 
 			<li><%=link_to current_user.email, edit_user_registration_path%></li>
 			<li><%=link_to "Logout", destroy_user_session_path, method: :delete%></li>

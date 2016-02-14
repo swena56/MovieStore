@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :carts
+  resources :carts
   #get 'carts/show'
 #	resource :cart, only: [:show] do
 #		put 'add/:movie_id', to: 'carts#add', as: :add_to
