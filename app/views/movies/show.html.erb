@@ -37,7 +37,9 @@
 		</div>
 		
 		<%if signed_in?%>
-		  <%= link_to "Add to Cart", { :controller => :carts, :action => :new, :name => @movie.title, :price => @movie.price  }, { class: "btn btn-primary btn-lg", style: "width: 100%;" } %> 
+		  <%= link_to "Add to Cart", { :controller => :carts, :action => :new, :id => @movie.id ,:name => @movie.title, :price => @movie.price  }, { class: "btn btn-primary btn-lg", style: "width: 100%;" } %> 
+		<%else%>
+		  <p> Sign in to make a purchase </p>
 		<%end%>
 			
 		<div class="small secondary expanded button-group">

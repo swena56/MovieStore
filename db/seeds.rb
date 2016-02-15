@@ -32,3 +32,4 @@ movie_list.each do |title, release_year, price, description, imdb_id, poster_url
   Movie.find_or_create_by(title: title, release_year: release_year, price: price, description: description, imdb_id: imdb_id, poster_url: poster_url)
 end
 
+users = []

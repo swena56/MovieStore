@@ -5,6 +5,13 @@ class CartsController < ApplicationController
   # GET /carts.json
   def index
     @carts = Cart.all
+	@totalPrice = 0
+	@carts.each do |item|
+		@totalPrice = @totalPrice + item.price
+	end
+	
+	@shippingPrice = 3.99
+	#need only the cart items for the current user
   end
 
   # GET /carts/1
@@ -17,7 +24,7 @@ class CartsController < ApplicationController
     @cart = Cart.new
 	@cart.name = params[:name]
 	@cart.price = params[:price]
-	
+	@cart.quantity = 1;
 	@cart.save
 	redirect_to "/carts"
   end
@@ -64,11 +71,20 @@ class CartsController < ApplicationController
   def destroy
     @cart.destroy
     respond_to do |format|
-      format.html { redirect_to carts_url, notice: 'Cart was successfully destroyed.' }
+      format.html { redirect_to carts_url, notice: 'Item was removed from cart.' }
       format.json { head :no_content }
     end
   end
 
+  
+	def emptyCart
+		@carts = Cart.all
+		@carts.destroy
+		redirect_to carts_url
+		#notice 'Cart is now empty'
+		
+	end
+	
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_cart

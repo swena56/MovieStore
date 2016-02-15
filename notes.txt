@@ -56,6 +56,7 @@ rails generate devise:views -v registrations sessions
 #configuring strip on heroku
 heroku config:set PUBLISHABLE_KEY=pk_test_Ey5Z2ZMWCadRLi0wOkoARDmP SECRET_KEY=sk_test_bZz8VNY5ixpLtwPKdlSQz6f0
 git push heroku master
+set RAILS_ENV=monster_island
 
 #checkout
 gem 'redis', '~> 3.0.1'
